@@ -11,11 +11,28 @@ ZETTELS_EXCLUDE = [
                  ]
 
 ZETTELS_LIST = [
-                # '@57',
+                '@57',
                 ]
 
 ZETTELKASTENDIR = '/Users/dnv/Documents/Exocortex/Zettelkasten/'
 IMGDIR = '/Users/dnv/Downloads/img_from_html/'
+
+
+# options for imgkit generator
+OPTIONS = {
+    # on default dpi=96. I need 300 dpi, that's why I set zoom = 3 and multiplied width and height to 3
+    'zoom': 3,
+    'height': 298 * 3,
+    'width': 421 * 3,
+    'quality': 100,
+    'disable-smart-width': None,
+    'encoding': "UTF-8",
+    # 'enable-local-file-access': None,
+    # 'crop-h': '3',
+    # 'crop-w': '3',
+    # 'crop-x': '3',
+    # 'crop-y': '3',
+}
 
 
 def get_bibliographic_notes(path: str, exclude: list, all_notes=False):
