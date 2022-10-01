@@ -1,9 +1,6 @@
 import os
 import re
 
-SUBDIR = 'bibliographic_box/'
-# SUBDIR = '_inbox/'
-
 
 # filter to exclude notes from bibliographic list
 ZETTELS_EXCLUDE = [
@@ -11,12 +8,16 @@ ZETTELS_EXCLUDE = [
                  ]
 
 ZETTELS_LIST = [
-                '@57',
+                # '@57',
                 ]
 
+# directory
 ZETTELKASTENDIR = '/Users/dnv/Documents/Exocortex/Zettelkasten/'
 IMGDIR = '/Users/dnv/Downloads/img_from_html/'
 
+# subdirectory
+SUBDIR = 'bibliographic_box/'
+# SUBDIR = '_inbox/'
 
 # options for imgkit generator
 OPTIONS = {
@@ -49,7 +50,16 @@ def get_bibliographic_notes(path: str, exclude: list, all_notes=False):
         return sorted(list((set(notes) - set(exclude))))
 
 
-def gen_html_view(name, content):
+def get_notes(path: str, suffix: str):
+    notes = []
+    files = sorted(os.listdir(path))
+    for file in files:
+        if file.endswith(suffix):
+            notes.append(file)
+    return notes
+
+
+def gen_html_view(name: str, content: str):
     style = """
             .zettel-borders {
                position: absolute;
